@@ -64,3 +64,40 @@
   transform: rotate(-45deg);
   transition: 0.4s ease-in-out;
 }
+
+// màu text
+.activeText {
+  background-image: linear-gradient(45deg, #fa9323 0%, #ffd612 50%);
+  background-clip: text;
+  color: transparent !important;
+}
+.activeSpan {
+  background-image: linear-gradient(45deg, #ff0000 0%, #ffd612 100%);
+  background-clip: text;
+  color: transparent !important;
+}
+
+.tagMenu::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 15px;
+  background-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+  transition: 0.5s ease-in-out;
+  z-index: 0;
+}
+.tagMenu.active::after {
+  width: 100%;
+}
+
+table {
+  tr {
+    cursor: default;
+  }
+  tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

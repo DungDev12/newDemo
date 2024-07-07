@@ -8,7 +8,11 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        borderBox: "0px 0px 15px -2px rgba(255, 255, 255, 0.7)",
+      },
+    },
   },
   plugins: [nextui()],
 };

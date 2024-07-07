@@ -10,14 +10,14 @@ const Layout = ({ children }) => {
       openModal.navMenu ? "translate-x-[0px]" : "-translate-x-[400px]"
     }`;
   }, [openModal.navMenu]);
+  console.log("Layout");
   return (
     <div className="bg-[#2B2B31]">
-      {console.log("test")}
       <div className={classNavMenu}>
         <NavMenu />
       </div>
-      <div className="pl-[0px] transition-all duration-500 ease-linear lg:pl-[281px]">
-        <div className=" h-[200vh]">
+      <div className="pl-[0px] transition-all duration-500 ease-linear lg:pl-[281px] lg:pr-[27px]">
+        <div className=" min-h-[100vh] py-[20px]">
           <Header />
           {children}
         </div>
