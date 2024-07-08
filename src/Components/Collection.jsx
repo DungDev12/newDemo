@@ -3,7 +3,7 @@ import "./style.scss";
 const Collection = () => {
   console.log("Collection");
   const { activeTab, setActiveTab, collection } = useAuth();
-
+  
   return (
     <>
       <div className="mb-[25px] bg-[#28282D] rounded-[5px] overflow-hidden lg:mt-[0] mt-[25px]">

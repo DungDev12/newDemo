@@ -49,6 +49,7 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG TỔNG 2 SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x1.95</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
     {
       id: 2,
@@ -79,6 +80,7 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x2.5</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
     {
       id: 3,
@@ -109,6 +111,7 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x2.5</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
     {
       id: 4,
@@ -139,6 +142,7 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x2.5</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
     {
       id: 5,
@@ -169,6 +173,7 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x2.5</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
     {
       id: 6,
@@ -199,12 +204,16 @@ const AppContext = ({ children }) => {
           payGet: "2.5",
         },
       ],
+      info: '<p className="text-[14px] text-[#C7C7C7] px-[20px] mb-16px text-center"> KẾT QUẢ TÍNH BẰNG SỐ CUỐI CỦA <span  className="text-[#ffd612]" >MÃ GIAO DỊCH BANK</span> KHI CHUYỂN KHOẢN VÀO BANK NHẬN CỦA WEB TỶ LỆ SẼ LÀ <span className="text-[#ffd612]" >x2.5</span> CHO LỆNH WIN ĐẦU TIỀN (&ge; 50K VÀ &le; 100K) TỶ LỆ GIẢM 0.1 ĐỐI VỚI CÁC GIAO DỊCH TỪ 100K TRỞ LÊN </p>',
     },
   ];
 
   useEffect(() => {
     setPage(activeNavMenu, "page");
   }, [activeNavMenu]);
+
+  const [loading, setLoading] = useState(true);
+
   return (
     <Context.Provider
       value={{
@@ -215,6 +224,8 @@ const AppContext = ({ children }) => {
         activeTab,
         setActiveTab,
         collection,
+        loading,
+        setLoading,
       }}
     >
       {children}

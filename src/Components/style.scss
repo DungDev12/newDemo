@@ -72,7 +72,7 @@
   color: transparent !important;
 }
 .activeSpan {
-  background-image: linear-gradient(45deg, #ff0000 0%, #ffd612 100%);
+  background-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
   background-clip: text;
   color: transparent !important;
 }
@@ -99,5 +99,34 @@ table {
   }
   tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.loading {
+  background-color: rgba(0, 0, 0, 0.5);
+  img {
+    animation: animationImgLoading 0.3s ease-in-out infinite;
+  }
+}
+.closeLoading {
+  animation: animationLoading 3s linear;
+}
+@keyframes animationLoading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes animationImgLoading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
   }
 }
