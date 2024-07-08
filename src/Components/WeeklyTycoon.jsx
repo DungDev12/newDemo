@@ -8,6 +8,7 @@ const WeeklyTycoon = () => {
           <GiRibbonMedal className="text-[30px] text-[#fa9323]" />
           <h3 className="text-[20px] activeSpan">ĐẠI GIA TUẦN</h3>
         </div>
+        <hr />
         <div className="py-[20px]">
           <table className="table-auto w-full text-center">
             <thead>

@@ -7,6 +7,7 @@ const History = () => {
         <CiClock2 className="text-[30px] text-[#fa9323]" />
         <h3 className="text-[20px] activeSpan">LỊCH SỬ ĐẶT CƯỢC</h3>
       </div>
+      <hr />
       <div className="py-[20px]">
         <table className="table-auto w-full text-center text-white">
           <thead>
