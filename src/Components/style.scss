@@ -103,17 +103,18 @@ table {
 }
 
 .loading {
-  background-color: rgba(0, 0, 0, 0.5);
-  img {
-    animation: animationImgLoading 0.3s ease-in-out infinite;
-  }
+  background-color: rgba(0, 0, 0, 0.855);
+  opacity: 0.8;
+}
+.loading img {
+  animation: animationImgLoading 0.3s linear infinite;
 }
 .closeLoading {
-  animation: animationLoading 3s linear;
+  animation: animationLoading 1s linear;
 }
 @keyframes animationLoading {
   0% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
     opacity: 0;

@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
     }`;
   }, [openModal.navMenu]);
   console.log("Layout");
-
+  console.log(loading);
   return (
     <div>
       {loading && <Loading />}

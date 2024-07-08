@@ -4,6 +4,11 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { TbLogin } from "react-icons/tb";
 import { ImUserPlus } from "react-icons/im";
 import { useAuth } from "../App/Context/Context";
+import { CiGift } from "react-icons/ci";
+import { BsCalendar2CheckFill, BsStars } from "react-icons/bs";
+import { RiRefund2Line, RiVipCrownLine } from "react-icons/ri";
+import { HiOutlineTrophy } from "react-icons/hi2";
+import { IoStarOutline } from "react-icons/io5";
 const NavMenu = () => {
   const navigate = useNavigate();
   const { activeNavMenu, setActiveNavMenu } = useAuth();
@@ -11,6 +16,13 @@ const NavMenu = () => {
     home: AiOutlineAppstore,
     login: TbLogin,
     register: ImUserPlus,
+    giftCode: CiGift,
+    mission: BsCalendar2CheckFill,
+    refund: RiRefund2Line,
+    trophy: HiOutlineTrophy,
+    vip: RiVipCrownLine,
+    star: BsStars,
+    fan: IoStarOutline,
   };
   const tagPage = [
     {
@@ -30,6 +42,48 @@ const NavMenu = () => {
       path: "/dang-ky",
       name: "Đăng ký",
       icon: "register",
+    },
+    {
+      id: 4,
+      path: "/giftcode",
+      name: "Giftcode",
+      icon: "giftCode",
+    },
+    {
+      id: 5,
+      path: "/nvngay",
+      name: "Nhiệm vụ ngày",
+      icon: "mission",
+    },
+    {
+      id: 6,
+      path: "/hoancuoc",
+      name: "Hoàn cược",
+      icon: "refund",
+    },
+    {
+      id: 7,
+      path: "/jackpot",
+      name: "JACKPOT",
+      icon: "trophy",
+    },
+    {
+      id: 8,
+      path: "/vip",
+      name: "Đặc quyền VIP",
+      icon: "vip",
+    },
+    {
+      id: 9,
+      path: "/vinhdanhvip",
+      name: "Vinh danh VIP",
+      icon: "star",
+    },
+    {
+      id: 10,
+      path: "/fan",
+      name: "Fan miễn phí 25k",
+      icon: "fan",
     },
   ];
   return (
@@ -69,7 +123,7 @@ const NavMenu = () => {
                       activeNavMenu == item.id ? "activeText" : ""
                     }`}
                   >
-                    {item.name}
+                    {item.name.toUpperCase()}
                   </span>
                 </span>
               </div>

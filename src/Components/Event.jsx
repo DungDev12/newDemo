@@ -11,7 +11,7 @@ const Event = () => {
       <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
         <div className="flex items-center gap-4 p-[20px] ">
           <HiSpeakerphone className="text-[30px] text-[#fa9323]" />
-          <h3 className="text-[20px] activeSpan">THÔNG TIN BANK NHẬN</h3>
+          <h3 className="text-[20px] activeSpan">SỰ KIỆN ĐANG DIỄN RA</h3>
         </div>
         <hr />
         <div className="p-2">

@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Collection />
-      <div className="grid grid-cols-2 gap-[2rem]">
+      <div className="flex items-start justify-between gap-[2rem]">
         <HowPlay />
         <InfoBank />
       </div>

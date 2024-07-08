@@ -15,7 +15,7 @@ const AppContext = ({ children }) => {
       : 1
   );
   const [activeTab, setActiveTab] = useState(1);
-
+  const [logged, setLogged] = useState(false);
   const setPage = (page, type) => {
     sessionStorage.setItem(type, JSON.stringify(page));
   };
@@ -226,6 +226,8 @@ const AppContext = ({ children }) => {
         collection,
         loading,
         setLoading,
+        logged,
+        setLogged,
       }}
     >
       {children}
