@@ -10,14 +10,14 @@ const Loading = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
       setClose(false);
     }, 2000);
     return () => clearTimeout(timer);
-  }, [close]);
+  }, []);
 
   return (
     <>

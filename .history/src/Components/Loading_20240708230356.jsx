@@ -17,7 +17,7 @@ const Loading = () => {
       setClose(false);
     }, 2000);
     return () => clearTimeout(timer);
-  }, [close]);
+  }, []);
 
   return (
     <>
