@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 const Context = createContext();
-
+import Cookies from "js-cookie";
 export const useAuth = () => {
   return useContext(Context);
 };
@@ -211,9 +212,94 @@ const AppContext = ({ children }) => {
   useEffect(() => {
     setPage(activeNavMenu, "page");
   }, [activeNavMenu]);
-
   const [loading, setLoading] = useState(true);
+  const [close, setClose] = useState(false);
+  useEffect(() => {
+    if (loading) {
+      const timer = setInterval(() => {
+        setClose(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setClose(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [loading]);
 
+  const token = Cookies.get("token");
+  useEffect(() => {
+    if (token) {
+      OldToken(token);
+    } else {
+      setLogged(false);
+      console.log("out");
+    }
+  }, [token]);
+  const OldToken = async (token) => {
+    if (token) {
+      try {
+        const response = await axios.post(
+          "https://new.chanlebank.bet/api/load-settings",
+          {}, // Dữ liệu gửi đi, nếu không có thì để trống
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        if (response.data.code == 401) {
+          // token không hợp lệ
+        }
+        if (response.data.status) {
+          setLogged(true);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+  const LoginAPI = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://new.chanlebank.bet/api/auth/login",
+        data,
+        { Authorization: token }
+      );
+      if (response.status === 401) {
+        Cookies.set("token", response.data.token, { expires: 1 });
+      }
+      if (response.status === 200) {
+        if (!response.data.status) {
+          return response.data.message;
+        }
+        Cookies.set("token", response.data.token, { expires: 1 });
+        setLogged(true);
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const RegisterAPI = async (data) => {
+    try {
+      const response = await axios
+        .post("https://new.chanlebank.bet/api/auth/register", data, {
+          Authorization: "Authorization",
+        })
+        .then((response) => response.data);
+      Cookies.set("token", response.token, { expires: 7 });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const Logout = async () => {
+    setLogged(false);
+    Cookies.remove("token");
+  };
   return (
     <Context.Provider
       value={{
@@ -228,6 +314,11 @@ const AppContext = ({ children }) => {
         setLoading,
         logged,
         setLogged,
+        close,
+        setClose,
+        LoginAPI,
+        RegisterAPI,
+        Logout,
       }}
     >
       {children}

@@ -8,10 +8,11 @@ import { CiGift } from "react-icons/ci";
 import { BsCalendar2CheckFill, BsStars } from "react-icons/bs";
 import { RiRefund2Line, RiVipCrownLine } from "react-icons/ri";
 import { HiOutlineTrophy } from "react-icons/hi2";
-import { IoStarOutline } from "react-icons/io5";
+import { IoLogOutOutline, IoStarOutline } from "react-icons/io5";
 const NavMenu = () => {
   const navigate = useNavigate();
-  const { activeNavMenu, setActiveNavMenu } = useAuth();
+  const { activeNavMenu, setActiveNavMenu, setLoading, logged, Logout } =
+    useAuth();
   const icon = {
     home: AiOutlineAppstore,
     login: TbLogin,
@@ -36,12 +37,14 @@ const NavMenu = () => {
       path: "/dang-nhap",
       name: "Đăng nhập",
       icon: "login",
+      logged: true,
     },
     {
       id: 3,
       path: "/dang-ky",
       name: "Đăng ký",
       icon: "register",
+      logged: true,
     },
     {
       id: 4,
@@ -103,13 +106,16 @@ const NavMenu = () => {
         {tagPage &&
           tagPage.map((item) => {
             const Icon = icon[item.icon];
+            if (logged && item.logged) return null;
             return (
               <div
                 key={item.id}
                 className="py-[10px] cursor-pointer transition duration-300 ease-linear"
                 onClick={() => {
+                  Logout();
                   setActiveNavMenu(item.id);
                   navigate(`/newDemo${item.path}`);
+                  setLoading(true);
                 }}
               >
                 <span className="flex px-[20px] items-center gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">
@@ -129,6 +135,22 @@ const NavMenu = () => {
               </div>
             );
           })}
+        {logged && (
+          <div
+            className="py-[10px] cursor-pointer transition duration-300 ease-linear"
+            onClick={() => {
+              Logout();
+              setActiveNavMenu(1);
+              navigate(`/newDemo/`);
+              setLoading(true);
+            }}
+          >
+            <span className="flex px-[20px] items-center gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">
+              <IoLogOutOutline className={`text-[20px]`} />
+              <span className={`text-[18px] mb-0.5`}>ĐĂNG XUẤT</span>
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

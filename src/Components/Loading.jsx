@@ -1,23 +1,7 @@
-import { useEffect, useState } from "react";
 import { useAuth } from "../App/Context/Context";
 
 const Loading = () => {
-  const { setLoading } = useAuth();
-  const [close, setClose] = useState(false);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setClose(true);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setClose(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const { close } = useAuth();
 
   return (
     <>

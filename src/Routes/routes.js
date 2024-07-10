@@ -15,7 +15,10 @@ export const routes = [
   {
     path: "/newDemo/dang-nhap",
     page: Login,
-    layout: true,
+  },
+  {
+    path: "/newDemo/dang-ky",
+    page: Register,
   },
   {
     path: "/newDemo/dang-ky",
