@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 const Context = createContext();
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export const useAuth = () => {
   return useContext(Context);
 };
@@ -214,6 +215,7 @@ const AppContext = ({ children }) => {
   }, [activeNavMenu]);
   const [loading, setLoading] = useState(true);
   const [close, setClose] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     if (loading) {
       const timer = setInterval(() => {
@@ -253,6 +255,9 @@ const AppContext = ({ children }) => {
         );
         if (response.data.code == 401) {
           // token không hợp lệ
+          Cookies.remove("token");
+          setLogged(false);
+          navigate("/newDemo/dang-nhap");
         }
         if (response.data.status) {
           setLogged(true);
@@ -291,7 +296,15 @@ const AppContext = ({ children }) => {
           Authorization: "Authorization",
         })
         .then((response) => response.data);
-      Cookies.set("token", response.token, { expires: 7 });
+      console.log(response);
+      if (response.status) {
+        Cookies.set("token", response.token, { expires: 7 });
+        navigate("/newDemo/");
+        setLogged(true);
+        return;
+      } else {
+        return response.message;
+      }
     } catch (err) {
       console.error(err);
     }

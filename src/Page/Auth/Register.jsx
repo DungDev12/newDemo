@@ -20,14 +20,17 @@ const Register = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password && formData.passwordCheck) {
       if (formData.password !== formData.passwordCheck) {
         setErr("Mật khẩu nhập lại không trùng khớp");
         return;
       } else {
-        RegisterAPI(formData);
+        const err1 = await RegisterAPI(formData);
+        if (err1) {
+          setErr(err1);
+        }
       }
     }
   };
