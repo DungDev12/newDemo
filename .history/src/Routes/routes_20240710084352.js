@@ -20,8 +20,8 @@ export const routes = [
     path: "/newDemo/dang-ky",
     page: Register,
   },
-  // {
-  //   path: "/newDemo/dang-ky",
-  //   page: Register,
-  // },
+  {
+    path: "/newDemo/dang-ky",
+    page: Register,
+  },
 ];
