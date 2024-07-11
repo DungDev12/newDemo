@@ -11,14 +11,14 @@ const Collection = () => {
       <div className="mb-[25px] bg-[#28282D] rounded-[5px] overflow-hidden lg:mt-[0] mt-[25px]">
         <div className={`flex items-center  gap-[20px] p-2 relative`}>
           {collection &&
-            collection.map((item) => (
+            collection.map((item, i) => (
               <div
-                key={item.id}
+                key={i}
                 className={`text-[#fff] p-2 cursor-pointer text-center text-[18px] font-bold tagMenu relative hover:text-[#fa9323] ${
-                  activeTab == item.id ? "activeText active" : ""
+                  activeTab == i ? "activeText active" : ""
                 }`}
                 onClick={() => {
-                  setActiveTab(item.id);
+                  setActiveTab(i);
                   setActiveNavMenu(1);
                   setLoading(true);
                   navigate("/newDemo/");

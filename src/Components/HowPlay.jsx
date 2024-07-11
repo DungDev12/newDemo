@@ -7,17 +7,17 @@ const HowPlay = () => {
   const { collection, activeTab, setActiveTab } = useAuth();
   useEffect(() => {
     if (activeTab == null) {
-      setActiveTab(1);
+      setActiveTab(0);
     }
   }, []);
   return (
     <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
-      {activeTab && (
+      {collection.length > 0 && (
         <>
           <div className="flex items-center gap-4 p-[20px] ">
             <FaGamepad className="text-[30px] text-[#fa9323]" />
             <h3 className="text-[20px] activeSpan">
-              {collection[activeTab - 1].name}
+              {collection[activeTab].name}
             </h3>
           </div>
           <hr />
@@ -32,13 +32,10 @@ const HowPlay = () => {
               </thead>
               <tbody className="border-t-[#2b2b31] border-t-[5px]">
                 {collection &&
-                  collection[activeTab - 1].data.map((item) => {
-                    const newNumber = item.number.split("");
+                  collection[activeTab].data.map((item, i) => {
+                    const newNumber = item.number.split("-");
                     return (
-                      <tr
-                        key={item.id}
-                        className="border-b-[#2b2b31] border-b-[5px]"
-                      >
+                      <tr key={i} className="border-b-[#2b2b31] border-b-[5px]">
                         <td className="p-2">{item.content.toUpperCase()}</td>
                         <td className="p-2 flex items-center justify-center gap-2 text-[12px]">
                           {newNumber.map((num, i) => (
@@ -57,7 +54,7 @@ const HowPlay = () => {
               </tbody>
             </table>
             <div className="pt-[25px] pb-[20px]">
-              {collection && parse(collection[activeTab - 1].info)}
+              {collection && parse(collection[activeTab].info)}
             </div>
           </div>
         </>
