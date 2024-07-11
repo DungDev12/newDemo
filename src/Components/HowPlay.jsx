@@ -10,10 +10,10 @@ const HowPlay = () => {
       setActiveTab(0);
     }
   }, []);
-  console.log(collection);
+  console.log(collection, activeTab);
   return (
     <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
-      {collection.length > 0 && (
+      {collection.length > 0 && activeTab != null && (
         <>
           <div className="flex items-center gap-4 p-[20px] ">
             <FaGamepad className="text-[30px] text-[#fa9323]" />
