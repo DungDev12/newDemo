@@ -121,7 +121,7 @@ const NavMenu = () => {
                   if (item.id !== 1) {
                     setActiveTab(null);
                   } else {
-                    setActiveTab(1);
+                    setActiveTab(0);
                   }
                   setActiveNavMenu(item.id);
                   navigate(`/newDemo${item.path}`);
