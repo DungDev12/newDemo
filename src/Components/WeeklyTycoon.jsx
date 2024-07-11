@@ -28,6 +28,9 @@ const WeeklyTycoon = () => {
               </tr>
             </tbody>
           </table>
+          <p className="text-center pt-[20px] text-[14px]">
+            - PHẦN THƯỞNG TOP SẼ ĐƯỢC TRAO VÀO 0:00 THỨ 2 TUẦN TIẾP THEO.
+          </p>
         </div>
       </div>
     </>

@@ -49,7 +49,7 @@ const Register = () => {
               }}
             />
           </div>
-          <form className="mt-[40px]" onSubmit={handleSubmit}>
+          <form className="mt-[20px]" onSubmit={handleSubmit}>
             <p className="text-center text-red-600 text-[14px] mb-4">{err}</p>
             <div className="mb-[20px] ">
               <input

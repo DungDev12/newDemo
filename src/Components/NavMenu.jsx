@@ -11,8 +11,14 @@ import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoLogOutOutline, IoStarOutline } from "react-icons/io5";
 const NavMenu = () => {
   const navigate = useNavigate();
-  const { activeNavMenu, setActiveNavMenu, setLoading, logged, Logout } =
-    useAuth();
+  const {
+    activeNavMenu,
+    setActiveNavMenu,
+    setLoading,
+    logged,
+    Logout,
+    setActiveTab,
+  } = useAuth();
   const icon = {
     home: AiOutlineAppstore,
     login: TbLogin,
@@ -112,7 +118,11 @@ const NavMenu = () => {
                 key={item.id}
                 className="py-[10px] cursor-pointer transition duration-300 ease-linear"
                 onClick={() => {
-                  Logout();
+                  if (item.id !== 1) {
+                    setActiveTab(null);
+                  } else {
+                    setActiveTab(1);
+                  }
                   setActiveNavMenu(item.id);
                   navigate(`/newDemo${item.path}`);
                   setLoading(true);
@@ -138,12 +148,7 @@ const NavMenu = () => {
         {logged && (
           <div
             className="py-[10px] cursor-pointer transition duration-300 ease-linear"
-            onClick={() => {
-              Logout();
-              setActiveNavMenu(1);
-              navigate(`/newDemo/`);
-              setLoading(true);
-            }}
+            onClick={() => Logout()}
           >
             <span className="flex px-[20px] items-center gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">
               <IoLogOutOutline className={`text-[20px]`} />

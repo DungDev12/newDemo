@@ -232,56 +232,50 @@ const AppContext = ({ children }) => {
     return () => clearTimeout(timer);
   }, [loading]);
 
-  const token = Cookies.get("token");
   useEffect(() => {
+    const token = Cookies.get("token");
     if (token) {
-      OldToken(token);
-    } else {
-      setLogged(false);
-      console.log("out");
+      // Kiểm tra token hợp lệ (có thể gọi API để xác thực token)
+      LoggedOut(token);
     }
-  }, [token]);
-  const OldToken = async (token) => {
-    if (token) {
-      try {
-        const response = await axios.post(
-          "https://new.chanlebank.bet/api/load-settings",
-          {}, // Dữ liệu gửi đi, nếu không có thì để trống
-          {
-            headers: {
-              Authorization: token,
-            },
-          }
-        );
-        if (response.data.code == 401) {
-          // token không hợp lệ
-          Cookies.remove("token");
-          setLogged(false);
-          navigate("/newDemo/dang-nhap");
+  }, [navigate]);
+  const LoggedOut = async (token) => {
+    try {
+      const response = await axios.post(
+        "https://new.chanlebank.bet/api/load-settings",
+        {}, // Dữ liệu gửi đi, nếu không có thì để trống
+        {
+          headers: {
+            Authorization: token,
+          },
         }
-        if (response.data.status) {
-          setLogged(true);
-        }
-      } catch (err) {
-        console.error(err);
+      );
+      console.log(response);
+      if (!response.data.status && response.data.code === 401) {
+        return navigate("/newDemo/dang-nhap");
       }
+      if (!response.data.status) {
+        return navigate("/newDemo/");
+      } else {
+        return setLogged(true);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
+
   const LoginAPI = async (data) => {
     try {
       const response = await axios.post(
         "https://new.chanlebank.bet/api/auth/login",
-        data,
-        { Authorization: token }
+        data
       );
-      if (response.status === 401) {
-        Cookies.set("token", response.data.token, { expires: 1 });
-      }
       if (response.status === 200) {
         if (!response.data.status) {
           return response.data.message;
         }
-        Cookies.set("token", response.data.token, { expires: 1 });
+        const token = response.data.token;
+        Cookies.set("token", token, { expires: 7 });
         setLogged(true);
         return;
       }
@@ -292,18 +286,17 @@ const AppContext = ({ children }) => {
   const RegisterAPI = async (data) => {
     try {
       const response = await axios
-        .post("https://new.chanlebank.bet/api/auth/register", data, {
-          Authorization: "Authorization",
-        })
-        .then((response) => response.data);
+        .post("https://new.chanlebank.bet/api/auth/register", data)
       console.log(response);
-      if (response.status) {
-        Cookies.set("token", response.token, { expires: 7 });
-        navigate("/newDemo/");
+      if (response.status === 200) {
+        if (!response.data.status) {
+          return response.data.message;
+        }
+        const token = response.data.token;
+        Cookies.set("token", token, { expires: 7 });
         setLogged(true);
+        navigate("/newDemo/");
         return;
-      } else {
-        return response.message;
       }
     } catch (err) {
       console.error(err);
@@ -312,6 +305,9 @@ const AppContext = ({ children }) => {
   const Logout = async () => {
     setLogged(false);
     Cookies.remove("token");
+    setActiveNavMenu(1);
+    navigate(`/newDemo/`);
+    setLoading(true);
   };
   return (
     <Context.Provider

@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <>
       <div className="bg-[#2B2B31] w-[100vw] h-[100vh] grid place-content-center">
-        <div className="w-[440px] overflow-hidden h-[431px] borderTop bg-[#28282D] rounded-[5px] shadow-xl px-[80px] py-[40px]">
+        <div className="w-[440px] overflow-hidden min-h-[431px] borderTop bg-[#28282D] rounded-[5px] shadow-xl px-[80px] py-[40px]">
           <div>
             <img
               src="https://chanlebank.bet/uploads/1713603023_2049.png"
@@ -44,7 +44,7 @@ const Login = () => {
               }}
             />
           </div>
-          <form className="mt-[40px]" onSubmit={handleSubmit}>
+          <form className="mt-[20px]" onSubmit={handleSubmit}>
             <p className="text-center text-red-600 text-[14px] mb-4">{err}</p>
             <div className="mb-[20px] ">
               <input

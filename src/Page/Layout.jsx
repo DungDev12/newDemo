@@ -4,6 +4,7 @@ import NavMenu from "../Components/NavMenu";
 import { useAuth } from "../App/Context/Context";
 import { useMemo } from "react";
 import Loading from "../Components/Loading";
+import Collection from "../Components/Collection";
 const Layout = ({ children }) => {
   const { openModal, loading } = useAuth();
   const classNavMenu = useMemo(() => {
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
         <div className="pl-[0px] transition-all duration-500 ease-linear lg:pl-[281px] lg:pr-[27px]">
           <div className=" min-h-[100vh] py-[20px]">
             <Header />
+            <Collection />
             {children}
           </div>
         </div>

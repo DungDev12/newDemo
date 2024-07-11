@@ -3,6 +3,18 @@ import { useAuth } from "../App/Context/Context";
 import NotLogin from "../Page/Auth/NotLogin";
 const InfoBank = () => {
   const { logged } = useAuth();
+  const API = [
+    {
+      id: 1,
+      bank: "MB",
+      imgBank: "https://chanlebank.bet/assets/images/mb.png",
+      account: "69373342342",
+      name: "NGUYEN",
+      min: "20,000VND",
+      limit: "3,000,000VND",
+      qr: "" // đường dẫn link mã QR code
+    },
+  ]
   return (
     <>
       <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
