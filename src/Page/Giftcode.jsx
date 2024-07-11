@@ -62,10 +62,17 @@ const GiftCode = () => {
           ) : (
             <>
               <p className="mb-[20px] w-[80%] mx-auto">
-                SỰ KIỆN HOÀN CƯỢC là chương trình đặc biệt mà KUBANK.CLUB dành
-                riêng cho các người chơi mới nhằm trải nghiệm dịch vụ của chúng
-                tôi. Khi bạn chơi game trên KUBANK.CLUB với tổng cược đạt 30,000
-                vnđ và BẤT KỂ THẮNG THUA bạn sẽ nhận lại 18,000 vnđ.
+                GIFTCODE LÀ MÓN QUÀ MÀ CHÚNG TÔI GỬI TẶNG TỚI NHỮNG NGƯỜI CHƠI
+                ĐỂ TRI ÂN. NGƯỜI CHƠI CÓ THỂ NHẬN ĐƯỢC THÔNG QUA VIỆC THAM GIA
+                CÁC SỰ KIỆN TRÊN WEB HOẶC{" "}
+                <Link className="text-[#FFD612] hover:text-[#FA9323] transition duration-300 ease-linear cursor-pointer">
+                  GROUP TELEGRAM
+                </Link>{" "}
+                DO CHÚNG TÔI TỔ CHỨC TRỞ THÀNH{" "}
+                <Link className="text-[#FFD612] hover:text-[#FA9323] transition duration-300 ease-linear cursor-pointer">
+                  FAN CỨNG
+                </Link>{" "}
+                GIÚP BẠN CÓ CƠ HỘI NHẬN THÊM 50% GIÁ TRỊ CODE.
               </p>
               <p>ĐIỀU KIỆN THAM GIA SỰ KIỆN</p>
               <p className="mb-[20px]">

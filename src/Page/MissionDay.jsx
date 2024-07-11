@@ -1,6 +1,7 @@
 import { BsCalendar2CheckFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../App/Context/Context";
+import { ConverterMoney } from "../Components/Converter/ConverterMoney";
 
 const MissionDay = () => {
   const navigate = useNavigate();
@@ -134,11 +135,20 @@ const MissionDay = () => {
                 {data &&
                   data.map((it) => (
                     <tr key={it.id} className="border-b-[5px] border-[#2B2B31]">
-                      <td className="py-[10px]">{it.level}</td>
+                      <td className="py-[10px]">
+                        {ConverterMoney({
+                          str: it.level.toString(),
+                          unit: ",",
+                        })}
+                      </td>
                       <td className="">
-                        {it.reward} (
+                        {ConverterMoney({
+                          str: it.reward.toString(),
+                          unit: ",",
+                        })}{" "}
+                        (
                         <Link
-                          to={"/"}
+                          to={it.path}
                           className="text-[#FFD612] cursor-pointer hover:text-[#FA9323] transition duration-300 ease-linear"
                         >
                           {it.title}

@@ -1,8 +1,19 @@
 import { BsBank2, BsQrCodeScan } from "react-icons/bs";
 import { useAuth } from "../App/Context/Context";
 import NotLogin from "../Page/Auth/NotLogin";
+import { ConverterMoney } from "../Components/Converter/ConverterMoney";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@nextui-org/react";
 const InfoBank = () => {
   const { logged } = useAuth();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const API = [
     {
       id: 1,
@@ -10,11 +21,11 @@ const InfoBank = () => {
       imgBank: "https://chanlebank.bet/assets/images/mb.png",
       account: "69373342342",
       name: "NGUYEN",
-      min: "20,000VND",
-      limit: "3,000,000VND",
-      qr: "" // đường dẫn link mã QR code
+      min: 20000,
+      limit: 3000000,
+      qr: "", // đường dẫn link mã QR code
     },
-  ]
+  ];
   return (
     <>
       <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
@@ -24,9 +35,9 @@ const InfoBank = () => {
         </div>
         <hr />
         {logged ? (
-          <div className="py-[20px] min-h-[436px]">
+          <div className="py-[20px] min-h-[100px]">
             <table className="table-auto w-full text-center">
-              <thead>
+              <thead className="text-[14px]">
                 <tr>
                   <th>NGÂN HÀNG</th>
                   <th>TÀI KHOẢN</th>
@@ -37,59 +48,35 @@ const InfoBank = () => {
                 </tr>
               </thead>
               <tbody className="border-t-[#2b2b31] border-t-[5px]">
-                <tr className="border-b-[#2b2b31] border-b-[5px]">
-                  <th className="flex items-center justify-center p-[0.5rem]">
-                    <div className="w-[80px]">
-                      <img
-                        className="object-cover"
-                        src="https://chanlebank.bet/assets/images/mb.png"
-                      />
-                    </div>
-                    <strong>MB</strong>
-                  </th>
-                  <th>693733****</th>
-                  <th>NGUYEN****</th>
-                  <th>20,000VND</th>
-                  <th>3,000,000VND</th>
-                  <th>
-                    <BsQrCodeScan className="mx-auto text-[#fa922399] hover:text-[#fa9323] transition duration-300 ease-linear cursor-pointer text-[20px]" />
-                  </th>
-                  <th>
-                    <div>
-                      <img />
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th className="flex items-center justify-center">
-                    <div className="w-[80px]">
-                      <img
-                        className="object-cover"
-                        src="https://chanlebank.bet/assets/images/mb.png"
-                      />
-                    </div>
-                    <strong>MB</strong>
-                  </th>
-                  <th>693733****</th>
-                  <th>NGUYEN****</th>
-                  <th>20,000VND</th>
-                  <th>3,000,000VND</th>
-                </tr>
-                <tr>
-                  <th className="flex items-center justify-center">
-                    <div className="w-[80px]">
-                      <img
-                        className="object-cover"
-                        src="https://chanlebank.bet/assets/images/mb.png"
-                      />
-                    </div>
-                    <strong>MB</strong>
-                  </th>
-                  <th>693733****</th>
-                  <th>NGUYEN****</th>
-                  <th>20,000VND</th>
-                  <th>3,000,000VND</th>
-                </tr>
+                {API &&
+                  API.map((it, i) => (
+                    <tr key={i} className="border-b-[#2b2b31] border-b-[5px]">
+                      <td className="flex items-center justify-center p-[0.5rem]">
+                        <div className="w-[80px]">
+                          <img className="object-cover" src={it.imgBank} />
+                        </div>
+                        <strong>{it.bank}</strong>
+                      </td>
+                      <td>{it.account}</td>
+                      <td>{it.name}</td>
+                      <td>
+                        {ConverterMoney({ str: it.min.toString(), unit: "," })}{" "}
+                        VND
+                      </td>
+                      <td>
+                        {ConverterMoney({
+                          str: it.limit.toString(),
+                          unit: ",",
+                        })}{" "}
+                        VND
+                      </td>
+                      <td>
+                        <div onClick={() => onOpen()}>
+                          <BsQrCodeScan className="mx-auto text-[#fa922399] hover:text-[#fa9323] transition duration-300 ease-linear cursor-pointer text-[20px]" />
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -97,6 +84,25 @@ const InfoBank = () => {
           <NotLogin />
         )}
       </div>
+      <Modal backdrop={"blur"} isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">QR Code</ModalHeader>
+              <ModalBody>
+                <div>
+                  <img />
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </>
   );
 };

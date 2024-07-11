@@ -10,7 +10,7 @@ const History = () => {
       <hr />
       <div className="py-[20px]">
         <table className="table-auto w-full text-center text-white">
-          <thead>
+          <thead className="text-[14px]">
             <tr>
               <th>NICKNAME</th>
               <th>TIỀN CƯỢC</th>
@@ -21,7 +21,7 @@ const History = () => {
               <th>THỜI GIAN</th>
             </tr>
           </thead>
-          <tbody className="border-t-[#2b2b31] border-t-[5px]">
+          <tbody className="border-t-[#2b2b31] border-t-[5px] text-[15px]">
             <tr className="border-b-[#2b2b31] border-b-[5px] ">
               <th className="p-[0.5rem]">tuandung</th>
               <th>35,212</th>

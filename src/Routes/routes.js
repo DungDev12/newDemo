@@ -4,6 +4,8 @@ import Register from "../Page/Auth/Register.jsx";
 import NotFound from "../Page/NotFound.jsx";
 import GiftCode from "../Page/Giftcode.jsx";
 import MissionDay from "../Page/MissionDay.jsx";
+import Refund from "../Page/Refund.jsx";
+import Jackpot from "../Page/Jackpot.jsx";
 export const routes = [
   {
     path: "/newDemo/",
@@ -30,6 +32,16 @@ export const routes = [
   {
     path: "/newDemo/nvngay",
     page: MissionDay,
+    layout: true,
+  },
+  {
+    path: "/newDemo/hoancuoc",
+    page: Refund,
+    layout: true,
+  },
+  {
+    path: "/newDemo/jackpot",
+    page: Jackpot,
     layout: true,
   },
 ];

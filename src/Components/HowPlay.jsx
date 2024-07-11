@@ -3,6 +3,7 @@ import "./style.scss";
 import { useAuth } from "../App/Context/Context";
 import parse from "html-react-parser";
 import { useEffect } from "react";
+import NotCode from "./NotCode";
 const HowPlay = () => {
   const { collection, activeTab, setActiveTab } = useAuth();
   useEffect(() => {
@@ -10,10 +11,9 @@ const HowPlay = () => {
       setActiveTab(0);
     }
   }, []);
-  console.log(collection, activeTab);
   return (
     <div className="w-full bg-[#28282D] text-white rounded-[5px] border-[#28282D] border-[2px]">
-      {collection.length > 0 && activeTab != null && (
+      {collection.length > 0 && activeTab != null ? (
         <>
           <div className="flex items-center gap-4 p-[20px] ">
             <FaGamepad className="text-[30px] text-[#fa9323]" />
@@ -59,6 +59,8 @@ const HowPlay = () => {
             </div>
           </div>
         </>
+      ) : (
+        <NotCode title={"Dữ liệu hiện đang bảo trì"} />
       )}
     </div>
   );

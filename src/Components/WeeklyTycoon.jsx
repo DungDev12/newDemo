@@ -11,7 +11,7 @@ const WeeklyTycoon = () => {
         <hr />
         <div className="py-[20px]">
           <table className="table-auto w-full text-center">
-            <thead>
+            <thead className="text-[14px]">
               <tr>
                 <th>HẠNG</th>
                 <th>NICKNAME</th>
@@ -19,7 +19,7 @@ const WeeklyTycoon = () => {
                 <th>PHẦN THƯỞNG</th>
               </tr>
             </thead>
-            <tbody className="border-t-[#2b2b31] border-t-[5px]">
+            <tbody className="border-t-[#2b2b31] border-t-[5px] text-[15px]">
               <tr className="border-b-[#2b2b31] border-b-[5px]">
                 <th className="p-1.5">1</th>
                 <td>DASDAD****</td>

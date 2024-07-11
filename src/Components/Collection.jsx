@@ -14,7 +14,7 @@ const Collection = () => {
             collection.map((item, i) => (
               <div
                 key={i}
-                className={`text-[#fff] p-2 cursor-pointer text-center text-[18px] font-bold tagMenu relative hover:text-[#fa9323] ${
+                className={`text-[#fff] p-2 cursor-pointer text-center text-[18px] font-bold tagMenu relative hover:text-[#fa9323] uppercase ${
                   activeTab == i ? "activeText active" : ""
                 }`}
                 onClick={() => {
@@ -24,7 +24,7 @@ const Collection = () => {
                   navigate("/newDemo/");
                 }}
               >
-                {item.name}
+                {item.short_name}
               </div>
             ))}
         </div>
