@@ -6,6 +6,8 @@ import GiftCode from "../Page/Giftcode.jsx";
 import MissionDay from "../Page/MissionDay.jsx";
 import Refund from "../Page/Refund.jsx";
 import Jackpot from "../Page/Jackpot.jsx";
+import VIP from "../Page/VIP.jsx";
+import FAN from "../Page/FAN.jsx";
 export const routes = [
   {
     path: "/newDemo/",
@@ -42,6 +44,16 @@ export const routes = [
   {
     path: "/newDemo/jackpot",
     page: Jackpot,
+    layout: true,
+  },
+  {
+    path: "/newDemo/vip",
+    page: VIP,
+    layout: true,
+  },
+  {
+    path: "/newDemo/fan",
+    page: FAN,
     layout: true,
   },
 ];

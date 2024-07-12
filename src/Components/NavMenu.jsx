@@ -5,7 +5,7 @@ import { TbLogin } from "react-icons/tb";
 import { ImUserPlus } from "react-icons/im";
 import { useAuth } from "../App/Context/Context";
 import { CiGift } from "react-icons/ci";
-import { BsCalendar2CheckFill, BsStars } from "react-icons/bs";
+import { BsCalendar2CheckFill } from "react-icons/bs";
 import { RiRefund2Line, RiVipCrownLine } from "react-icons/ri";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoLogOutOutline, IoStarOutline } from "react-icons/io5";
@@ -28,7 +28,6 @@ const NavMenu = () => {
     refund: RiRefund2Line,
     trophy: HiOutlineTrophy,
     vip: RiVipCrownLine,
-    star: BsStars,
     fan: IoStarOutline,
   };
   const tagPage = [
@@ -84,12 +83,6 @@ const NavMenu = () => {
     },
     {
       id: 9,
-      path: "/vinhdanhvip",
-      name: "Vinh danh VIP",
-      icon: "star",
-    },
-    {
-      id: 10,
       path: "/fan",
       name: "Fan miễn phí 25k",
       icon: "fan",

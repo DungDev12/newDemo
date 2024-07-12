@@ -4,9 +4,10 @@ import { useAuth } from "../App/Context/Context";
 import { useState } from "react";
 const GiftCode = () => {
   const navigate = useNavigate();
-  const { logged } = useAuth();
+  const { logged, giftCode } = useAuth();
+  const [err, setErr] = useState("");
   const [giftcode, setGitfcode] = useState({
-    giftcode: "",
+    code: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,8 +16,13 @@ const GiftCode = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const err1 = await giftCode(giftcode);
+    console.log(err1);
+    if (err1) {
+      setErr(err1);
+    }
   };
   return (
     <>
@@ -30,11 +36,12 @@ const GiftCode = () => {
           {logged ? (
             <>
               <form onSubmit={handleSubmit} className="w-[30%] mx-auto">
+                {err && <p className="text-center text-red-600">{err}</p>}
                 <div className="">
                   <input
                     className="w-full px-[20px] h-[50px] outline-none rounded-[5px] bg-[#2B2B31] borderInput text-white"
                     type="giftcode"
-                    name="giftcode"
+                    name="code"
                     placeholder="Nhập GiftCode"
                     required
                     onChange={(e) => handleChange(e)}

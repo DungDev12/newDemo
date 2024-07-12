@@ -242,7 +242,7 @@ const AppContext = ({ children }) => {
       // Kiểm tra token hợp lệ (có thể gọi API để xác thực token)
       LoggedOut(token);
     }
-  }, [navigate]);
+  }, []);
   const LoggedOut = async (token) => {
     try {
       const response = await axios.post(
@@ -317,17 +317,41 @@ const AppContext = ({ children }) => {
   };
 
   const fetchCollection = async () => {
-    const response = await axios.post(
-      "https://new.chanlebank.bet/api/load-mini-game"
-    );
-    if (response.status === 200) {
-      if (!response.data.status) {
-        return navigate("/newDemo/");
+    try {
+      const response = await axios.post(
+        "https://new.chanlebank.bet/api/load-mini-game"
+      );
+      if (response.status === 200) {
+        if (!response.data.status) {
+          return navigate("/newDemo/");
+        }
+        setCollection(response.data.data);
       }
-      setCollection(response.data.data);
+    } catch (err) {
+      console.log(err);
     }
   };
 
+  const giftCode = async (code) => {
+    const token = Cookies.get("token");
+    try {
+      const response = await axios.post(
+        "https://new.chanlebank.bet/api/check-giftcode",
+        code,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log(response.data);
+      if (response.status === 200) {
+        return response.data.message;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <Context.Provider
       value={{
@@ -347,6 +371,7 @@ const AppContext = ({ children }) => {
         LoginAPI,
         RegisterAPI,
         Logout,
+        giftCode,
       }}
     >
       {children}
