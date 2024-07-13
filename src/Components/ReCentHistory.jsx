@@ -13,19 +13,19 @@ const RecentHistory = () => {
         </div>
         <hr />
         {logged ? (
-          <div className="py-[20px]">
-            <table className="table-auto w-full text-center">
+          <div className="py-[20px] overflow-x-auto">
+            <table className="table lg:table-auto w-full text-center lg:text-[14px] md:text-[12px] text-[12px]">
               <thead>
                 <tr>
-                  <th>TRÒ CHƠI</th>
-                  <th>ĐÃ CHỌN</th>
-                  <th>MÃ GIAO DỊCH</th>
-                  <th>SỐ TIỀN</th>
-                  <th>KẾT QUẢ</th>
-                  <th>TRẢ THƯỞNG</th>
-                  <th>THỜI GIAN</th>
-                  <th>SAO KÊ</th>
-                  <th>GHI CHÚ</th>
+                  <th className="px-4">TRÒ CHƠI</th>
+                  <th className="px-4">ĐÃ CHỌN</th>
+                  <th className="px-4">MÃ GIAO DỊCH</th>
+                  <th className="px-4">SỐ TIỀN</th>
+                  <th className="px-4">KẾT QUẢ</th>
+                  <th className="px-4">TRẢ THƯỞNG</th>
+                  <th className="px-4">THỜI GIAN</th>
+                  <th className="px-4">SAO KÊ</th>
+                  <th className="px-4">GHI CHÚ</th>
                 </tr>
               </thead>
               <tbody className="border-t-[#2b2b31] border-t-[5px]">
@@ -38,12 +38,12 @@ const RecentHistory = () => {
                   </td>
                   <td>FT24190530160322</td>
                   <td>10,000</td>
-                  <td className="pb-1">
+                  <td className="pb-1  px-2">
                     <span className="bg-[#478C7A] py-1 px-2 rounded-[5px] text-[13px]">
                       WIN
                     </span>
                   </td>
-                  <td className="pb-1">
+                  <td className="pb-1 px-2">
                     <span className="bg-[#478C7A] py-1 px-2 rounded-[5px] text-[13px]">
                       SENT
                     </span>

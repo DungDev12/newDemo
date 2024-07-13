@@ -35,16 +35,16 @@ const InfoBank = () => {
         </div>
         <hr />
         {logged ? (
-          <div className="py-[20px] min-h-[100px]">
-            <table className="table-auto w-full text-center">
-              <thead className="text-[14px]">
+          <div className="py-[20px] min-h-[100px] overflow-x-auto">
+            <table className="table lg:table-auto w-full text-center lg:text-[14px] md:text-[12px] sm:text-[11px] text-[10px]">
+              <thead className="lg:text-[14px] text-[12px]">
                 <tr>
-                  <th>NGÂN HÀNG</th>
-                  <th>TÀI KHOẢN</th>
-                  <th>TÊN CTK</th>
-                  <th>CƯỢC TỐI THIỂU</th>
-                  <th>CƯỢC TỐI ĐA</th>
-                  <th>MÃ QR</th>
+                  <th className="px-2">NGÂN HÀNG</th>
+                  <th className="px-2">TÀI KHOẢN</th>
+                  <th className="px-2">TÊN CTK</th>
+                  <th className="px-2">CƯỢC TỐI THIỂU</th>
+                  <th className="px-2">CƯỢC TỐI ĐA</th>
+                  <th className="px-2">MÃ QR</th>
                 </tr>
               </thead>
               <tbody className="border-t-[#2b2b31] border-t-[5px]">
@@ -52,7 +52,7 @@ const InfoBank = () => {
                   API.map((it, i) => (
                     <tr key={i} className="border-b-[#2b2b31] border-b-[5px]">
                       <td className="flex items-center justify-center p-[0.5rem]">
-                        <div className="w-[80px]">
+                        <div className="lg:w-[80px] md:w-[65px] w-[50px]">
                           <img className="object-cover" src={it.imgBank} />
                         </div>
                         <strong>{it.bank}</strong>

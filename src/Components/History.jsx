@@ -8,46 +8,50 @@ const History = () => {
         <h3 className="text-[20px] activeSpan">LỊCH SỬ ĐẶT CƯỢC</h3>
       </div>
       <hr />
-      <div className="py-[20px]">
-        <table className="table-auto w-full text-center text-white">
-          <thead className="text-[14px]">
+      <div className="py-[20px] overflow-x-auto">
+        <table className="table lg:table-auto w-full text-center text-white lg:text-[14px] md:text-[12px] sm:text-[11px] text-[10px]">
+          <thead className="">
             <tr>
-              <th>NICKNAME</th>
-              <th>TIỀN CƯỢC</th>
-              <th>TIỀN NHẬN</th>
-              <th>TRÒ CHƠI</th>
-              <th>ĐÃ CHỌN</th>
-              <th>KẾT QUẢ</th>
-              <th>THỜI GIAN</th>
+              <th className="px-2">NICKNAME</th>
+              <th className="px-2">TIỀN CƯỢC</th>
+              <th className="px-2">TIỀN NHẬN</th>
+              <th className="px-2">TRÒ CHƠI</th>
+              <th className="px-2">ĐÃ CHỌN</th>
+              <th className="px-2">KẾT QUẢ</th>
+              <th className="px-2">THỜI GIAN</th>
             </tr>
           </thead>
-          <tbody className="border-t-[#2b2b31] border-t-[5px] text-[15px]">
+          <tbody className="border-t-[#2b2b31] border-t-[5px] lg:text-[15px] text-[12px]">
             <tr className="border-b-[#2b2b31] border-b-[5px] ">
-              <th className="p-[0.5rem]">tuandung</th>
-              <th>35,212</th>
-              <th>35,212</th>
-              <th>CLTX</th>
-              <th>C</th>
-              <th>WIN</th>
-              <th>08/07/2024 07:14:47</th>
+              <td className="p-[0.5rem]">tuandung</td>
+              <td>35,212</td>
+              <td>35,212</td>
+              <td>CLTX</td>
+              <td>C</td>
+              <td>
+                <span className="bg-green-500 py-1 px-3 rounded-[5px] font-bold">
+                  WIN
+                </span>
+              </td>
+              <td>08/07/2024 07:14:47</td>
             </tr>
             <tr>
-              <th>tuandung</th>
-              <th>35,212</th>
-              <th>35,212</th>
-              <th>CLTX</th>
-              <th>C</th>
-              <th>WIN</th>
-              <th>08/07/2024 07:14:47</th>
+              <td>tuandung</td>
+              <td>35,212</td>
+              <td>35,212</td>
+              <td>CLTX</td>
+              <td>C</td>
+              <td>WIN</td>
+              <td>08/07/2024 07:14:47</td>
             </tr>
             <tr>
-              <th>tuandung</th>
-              <th>35,212</th>
-              <th>35,212</th>
-              <th>CLTX</th>
-              <th>C</th>
-              <th>WIN</th>
-              <th>08/07/2024 07:14:47</th>
+              <td>tuandung</td>
+              <td>35,212</td>
+              <td>35,212</td>
+              <td>CLTX</td>
+              <td>C</td>
+              <td>WIN</td>
+              <td>08/07/2024 07:14:47</td>
             </tr>
           </tbody>
         </table>

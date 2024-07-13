@@ -90,7 +90,7 @@ const NavMenu = () => {
   ];
   return (
     <>
-      <div className="borderAnimation relative pb-[10px] overflow-hidden">
+      <div className="borderAnimation relative pb-[10px] overflow-hidden z-[9999]">
         <div
           className="px-[20px] py-[10px] cursor-pointer"
           onClick={() => navigate("/newDemo/")}

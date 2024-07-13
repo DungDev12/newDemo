@@ -12,7 +12,7 @@ const Header = () => {
     }`;
   }, [openModal.navMenu]);
   return (
-    <div className="block lg:hidden borderAnimation overflow-hidden sticky top-0">
+    <div className="block bg-[#28282D] z-[1] lg:hidden borderAnimation overflow-hidden sticky top-0">
       <div className="flex items-center justify-between px-[10px]">
         <div
           className={`px-[20px] py-[10px] w-[300px] cursor-pointer transition duration-300 ease-linear ${

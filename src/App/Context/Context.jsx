@@ -281,6 +281,7 @@ const AppContext = ({ children }) => {
         const token = response.data.token;
         Cookies.set("token", token, { expires: 7 });
         setLogged(true);
+        setOpenModal({...openModal , navMenu: false});
         return;
       }
     } catch (err) {

@@ -9,17 +9,17 @@ const WeeklyTycoon = () => {
           <h3 className="text-[20px] activeSpan">ĐẠI GIA TUẦN</h3>
         </div>
         <hr />
-        <div className="py-[20px]">
-          <table className="table-auto w-full text-center">
-            <thead className="text-[14px]">
+        <div className="py-[20px] overflow-x-auto">
+          <table className=" table lg:table-auto w-full text-center lg:text-[14px] md:text-[12px] sm:text-[11px] text-[10px]">
+            <thead className="lg:text-[14px] text-[12px]">
               <tr>
-                <th>HẠNG</th>
-                <th>NICKNAME</th>
-                <th>TỔNG CƯỢC</th>
-                <th>PHẦN THƯỞNG</th>
+                <th className="px-2">HẠNG</th>
+                <th className="px-2">NICKNAME</th>
+                <th className="px-2">TỔNG CƯỢC</th>
+                <th className="px-2">PHẦN THƯỞNG</th>
               </tr>
             </thead>
-            <tbody className="border-t-[#2b2b31] border-t-[5px] text-[15px]">
+            <tbody className="border-t-[#2b2b31] border-t-[5px]">
               <tr className="border-b-[#2b2b31] border-b-[5px]">
                 <th className="p-1.5">1</th>
                 <td>DASDAD****</td>

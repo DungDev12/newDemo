@@ -23,7 +23,7 @@ const HowPlay = () => {
           </div>
           <hr />
           <div className="py-[20px]">
-            <table className="table-auto w-full text-center">
+            <table className="lg:table-auto w-full text-center lg:text-[16px] md:text-[16px] sm:text-[15px] text-[14px]">
               <thead>
                 <tr>
                   <th>NỘI DUNG</th>

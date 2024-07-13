@@ -10,13 +10,13 @@ const Home = () => {
   console.log("Home");
   return (
     <div>
-      <div className="flex items-start justify-between gap-[2rem]">
+      <div className="lg:flex items-start justify-between gap-[2rem]">
         <HowPlay />
         <InfoBank />
       </div>
       <RecentHistory />
       <History />
-      <div className="grid grid-cols-2 gap-[2rem] mt-[20px]">
+      <div className="lg:grid grid-cols-2 gap-[2rem] mt-[20px]">
         <WeeklyTycoon />
         <Event />
       </div>
