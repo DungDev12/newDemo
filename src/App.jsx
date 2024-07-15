@@ -1,9 +1,20 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { routes } from "./Routes/routes";
 import Layout from "./Page/Layout";
-import { Fragment } from "react";
+import { Fragment, useLayoutEffect } from "react";
+import { changeTitleHead } from "./Components/Converter/ChangeTitleHead";
 
 function App() {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    const currentRoute = routes.find(
+      (route) => route.path === location.pathname
+    );
+    if (currentRoute) {
+      changeTitleHead(currentRoute.name);
+    }
+  }, [location]);
+
   return (
     <>
       <Routes>

@@ -90,6 +90,7 @@ const NavMenu = () => {
       icon: "fan",
     },
   ];
+
   return (
     <>
       <div className="borderAnimation relative pb-[10px] overflow-hidden z-[9999]">
@@ -107,7 +108,7 @@ const NavMenu = () => {
         {logged && (
           <div>
             <div
-              className="py-[10px] cursor-pointer transition duration-300 ease-linear"
+              className="py-[10px] cursor-pointer transition duration-300 ease-linear relative"
               onClick={() => Logout()}
             >
               <span className="flex px-[20px] items-center justify-between gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">
@@ -120,6 +121,7 @@ const NavMenu = () => {
                 </span>
                 <IoLogOutOutline className={`text-[20px]`} />
               </span>
+              {/* <div className="absolute w-full h-[300px] bg-[#2B2B31] top-[4rem] right-0 rounded-[5px] borderTop overflow-hidden"></div> */}
             </div>
             <hr />
           </div>
@@ -152,9 +154,9 @@ const NavMenu = () => {
                     setActiveTab(0);
                   }
                   setActiveNavMenu(item.id);
-                  navigate(`/newDemo${item.path}`);
                   setOpenModal((prev) => ({ ...prev, navMenu: false }));
                   setLoading(true);
+                  navigate(`/newDemo${item.path}`);
                 }}
               >
                 <span className="flex px-[20px] items-center gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">

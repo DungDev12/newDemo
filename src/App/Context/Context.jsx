@@ -15,6 +15,7 @@ const AppContext = ({ children }) => {
   useEffect(() => {
     console.log(openModal);
   }, [openModal]);
+  
   const [activeNavMenu, setActiveNavMenu] = useState(
     sessionStorage.getItem("page")
       ? JSON.parse(sessionStorage.getItem("page"))
