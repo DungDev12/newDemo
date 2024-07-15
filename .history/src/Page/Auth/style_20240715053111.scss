@@ -1,0 +1,48 @@
+.borderTop {
+  position: relative;
+  img {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.4));
+  }
+  img:hover {
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6));
+  }
+}
+.borderTop::after {
+  position: absolute;
+  content: "";
+  width: 200%;
+  height: 10px;
+  top: -6px;
+  left: 0;
+  transform: translateX(50%);
+  background-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+  animation: gradient-animation 1s ease-in-out infinite alternate;
+}
+.borderInput {
+  border: 0px solid transparent; /* Đặt viền ban đầu là trong suốt */
+  border-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+  border-image-slice: 1; /* Đảm bảo gradient được áp dụng đúng */
+  transition: 0.1s ease-in-out;
+}
+.borderInput:hover,
+.borderInput:focus {
+  border: 1px solid; /* Thay đổi độ dày của viền khi hover hoặc focus */
+  border-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+  border-image-slice: 1;
+}
+
+.buttonAnimation {
+  background: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+}
+.buttonAnimation:hover {
+  background: linear-gradient(45deg, #ffd612 0%, #fa9323 100%);
+}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, #fa9323 0%, #ffd612 100%);
+    border-radius: 6px; /* Bo tròn các góc của thanh cuộn */
+  }
+}
