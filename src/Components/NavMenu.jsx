@@ -1,15 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 import { AiOutlineAppstore } from "react-icons/ai";
-import { TbLogin } from "react-icons/tb";
+import { TbBuildingBank, TbLogin } from "react-icons/tb";
 import { ImUserPlus } from "react-icons/im";
 import { useAuth } from "../App/Context/Context";
 import { CiGift } from "react-icons/ci";
-import { BsCalendar2CheckFill } from "react-icons/bs";
-import { RiRefund2Line, RiVipCrownLine } from "react-icons/ri";
+import { BsCalendar2CheckFill, BsCurrencyBitcoin } from "react-icons/bs";
+import {
+  RiLockPasswordLine,
+  RiRefund2Line,
+  RiVipCrownLine,
+} from "react-icons/ri";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoLogOutOutline, IoStarOutline } from "react-icons/io5";
-import { FaUserCog } from "react-icons/fa";
+import { FaTelegramPlane, FaUserCog } from "react-icons/fa";
+import { MdOutlineManageHistory } from "react-icons/md";
 const NavMenu = () => {
   const navigate = useNavigate();
   const {
@@ -18,6 +23,7 @@ const NavMenu = () => {
     setLoading,
     logged,
     Logout,
+    openModal,
     setActiveTab,
     setOpenModal,
   } = useAuth();
@@ -31,6 +37,11 @@ const NavMenu = () => {
     trophy: HiOutlineTrophy,
     vip: RiVipCrownLine,
     fan: IoStarOutline,
+    settingBank: TbBuildingBank,
+    settingBitcoin: BsCurrencyBitcoin,
+    settingHistory: MdOutlineManageHistory,
+    settingTelegram: FaTelegramPlane,
+    settingPassword: RiLockPasswordLine,
   };
   const tagPage = [
     {
@@ -90,7 +101,38 @@ const NavMenu = () => {
       icon: "fan",
     },
   ];
-
+  const tagUser = [
+    {
+      id: 1,
+      path: "/caidatbank",
+      name: "Cài đặt BANK",
+      icon: "settingBank",
+    },
+    {
+      id: 2,
+      path: "/coin",
+      name: "Số dư coin",
+      icon: "settingBitcoin",
+    },
+    {
+      id: 3,
+      path: "/ls-choi",
+      name: "Lịch sử chơi",
+      icon: "settingHistory",
+    },
+    {
+      id: 4,
+      path: "/lktelegram",
+      name: "liên kết telegram",
+      icon: "settingTelegram",
+    },
+    {
+      id: 5,
+      path: "/doimk",
+      name: "Đổi mật khẩu",
+      icon: "settingPassword",
+    },
+  ];
   return (
     <>
       <div className="borderAnimation relative pb-[10px] overflow-hidden z-[9999]">
@@ -108,7 +150,7 @@ const NavMenu = () => {
         {logged && (
           <div>
             <div
-              className="py-[10px] cursor-pointer transition duration-300 ease-linear relative"
+              className="py-[10px] cursor-pointer transition duration-300 ease-linear "
               onClick={() => Logout()}
             >
               <span className="flex px-[20px] items-center justify-between gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-blue-500">
@@ -121,14 +163,13 @@ const NavMenu = () => {
                 </span>
                 <IoLogOutOutline className={`text-[20px]`} />
               </span>
-              {/* <div className="absolute w-full h-[300px] bg-[#2B2B31] top-[4rem] right-0 rounded-[5px] borderTop overflow-hidden"></div> */}
             </div>
             <hr />
           </div>
         )}
         {logged && (
           <div
-            className="py-[10px] cursor-pointer transition duration-300 ease-linear"
+            className="py-[10px] cursor-pointer transition duration-300 ease-linear relative"
             onClick={() =>
               setOpenModal((prev) => ({ ...prev, navUser: !prev.navUser }))
             }
@@ -137,6 +178,37 @@ const NavMenu = () => {
               <FaUserCog className={`text-[20px]`} />
               <span className={`text-[18px] mb-0.5`}>Tài khoản</span>
             </span>
+            <div
+              className={`absolute w-full h-[300px] bg-[#2B2B31] top-[40px] right-0 rounded-[5px] transition-all duration-200 ease-linear borderTop overflow-hidden p-[10px] ${
+                openModal.navUser
+                  ? "top-[20px] opacity-0 pointer-events-none"
+                  : "top-[40px] opacity-1 "
+              }`}
+            >
+              {tagUser &&
+                tagUser.map((item) => {
+                  const Icon = icon[item.icon];
+                  if (logged && item.logged) return null;
+                  return (
+                    <div
+                      key={item.id}
+                      className="py-[10px] cursor-pointer transition duration-200 ease-linear"
+                      onClick={() => {
+                        setOpenModal((prev) => ({ ...prev, navMenu: false }));
+                        setLoading(true);
+                        navigate(`/newDemo${item.path}`);
+                      }}
+                    >
+                      <span className="flex px-[20px] items-center gap-[10px] transition duration-300 ease-linear text-[#fff] hover:text-[#fa9323]">
+                        <Icon className={`text-[20px]`} />
+                        <span className={`text-[14px] mb-0.5`}>
+                          {item.name.toUpperCase()}
+                        </span>
+                      </span>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         )}
         {tagPage &&
