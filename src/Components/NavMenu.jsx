@@ -5,7 +5,7 @@ import { TbBuildingBank, TbLogin } from "react-icons/tb";
 import { ImUserPlus } from "react-icons/im";
 import { useAuth } from "../App/Context/Context";
 import { CiGift } from "react-icons/ci";
-import { BsCalendar2CheckFill, BsCurrencyBitcoin } from "react-icons/bs";
+import { BsCalendar2CheckFill } from "react-icons/bs";
 import {
   RiLockPasswordLine,
   RiRefund2Line,
@@ -38,7 +38,6 @@ const NavMenu = () => {
     vip: RiVipCrownLine,
     fan: IoStarOutline,
     settingBank: TbBuildingBank,
-    settingBitcoin: BsCurrencyBitcoin,
     settingHistory: MdOutlineManageHistory,
     settingTelegram: FaTelegramPlane,
     settingPassword: RiLockPasswordLine,
@@ -110,24 +109,18 @@ const NavMenu = () => {
     },
     {
       id: 2,
-      path: "/coin",
-      name: "Số dư coin",
-      icon: "settingBitcoin",
-    },
-    {
-      id: 3,
       path: "/ls-choi",
       name: "Lịch sử chơi",
       icon: "settingHistory",
     },
     {
-      id: 4,
+      id: 3,
       path: "/lktelegram",
       name: "liên kết telegram",
       icon: "settingTelegram",
     },
     {
-      id: 5,
+      id: 4,
       path: "/doimk",
       name: "Đổi mật khẩu",
       icon: "settingPassword",
@@ -181,8 +174,8 @@ const NavMenu = () => {
             <div
               className={`absolute w-full h-[300px] bg-[#2B2B31] top-[40px] right-0 rounded-[5px] transition-all duration-200 ease-linear borderTop overflow-hidden p-[10px] ${
                 openModal.navUser
-                  ? "top-[20px] opacity-0 pointer-events-none"
-                  : "top-[40px] opacity-1 "
+                  ? " top-[40px] opacity-1 "
+                  : " top-[20px] opacity-0 pointer-events-none"
               }`}
             >
               {tagUser &&

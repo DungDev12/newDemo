@@ -8,6 +8,10 @@ import Refund from "../Page/Refund.jsx";
 import Jackpot from "../Page/Jackpot.jsx";
 import VIP from "../Page/VIP.jsx";
 import FAN from "../Page/FAN.jsx";
+import ChangePassword from "../Page/ChangPassword.jsx";
+import LKTelegram from "../Page/LKTelegram.jsx";
+import HistoryUser from "../Page/HistoryUser.jsx";
+import SettingBank from "../Page/SettingBank.jsx";
 export const routes = [
   {
     path: "/newDemo/",
@@ -64,6 +68,30 @@ export const routes = [
     path: "/newDemo/fan",
     name: "FAN",
     page: FAN,
+    layout: true,
+  },
+  {
+    path: "/newDemo/doimk",
+    name: "Đổi Mật Khẩu",
+    page: ChangePassword,
+    layout: true,
+  },
+  {
+    path: "/newDemo/lktelegram",
+    name: "Liên kết Telegram",
+    page: LKTelegram,
+    layout: true,
+  },
+  {
+    path: "/newDemo/ls-choi",
+    name: "Lịch Sử",
+    page: HistoryUser,
+    layout: true,
+  },
+  {
+    path: "/newDemo/caidatbank",
+    name: "Cài đặt",
+    page: SettingBank,
     layout: true,
   },
 ];

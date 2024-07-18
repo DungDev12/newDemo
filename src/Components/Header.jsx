@@ -25,7 +25,9 @@ const Header = () => {
             className="object-cover w-full transition duration-300 ease-linear"
           />
         </div>
-        <div className="mr-[10px]">
+        <div
+          className={`mr-[10px] ${openModal.navMenu && "pointer-events-none"}`}
+        >
           <div
             className={navMenuClass}
             onClick={() => {

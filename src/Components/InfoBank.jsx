@@ -11,6 +11,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
+import Copy from "./Tools/Copy";
 const InfoBank = () => {
   const { logged } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -19,7 +20,7 @@ const InfoBank = () => {
       id: 1,
       bank: "MB",
       imgBank: "https://chanlebank.bet/assets/images/mb.png",
-      account: "69373342342",
+      account: "69373342341",
       name: "NGUYEN",
       min: 20000,
       limit: 3000000,
@@ -56,7 +57,12 @@ const InfoBank = () => {
                       <td>
                         <strong>{it.bank}</strong>
                       </td>
-                      <td>{it.account}</td>
+                      <td>
+                        <div className="flex items-center gap-2">
+                          <span>{it.account} </span>
+                          <Copy value={it.account} />
+                        </div>
+                      </td>
                       <td>{it.name}</td>
                       <td>
                         {ConverterMoney({ str: it.min.toString(), unit: "," })}{" "}
